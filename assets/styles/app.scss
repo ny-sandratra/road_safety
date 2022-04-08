@@ -1,0 +1,92 @@
+@import "~bootstrap/scss/bootstrap";
+body {
+    background-color: lightgray;
+}
+
+.content {
+    width: 100%;
+    height: 766px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer.entry-meta {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 35px 0;
+    padding: 2px 0;
+    color: #888888;
+    font-size: 12px;
+    font-size: 0.75rem;
+}
+
+footer.entry-meta a {
+    color: #333333;
+}
+
+footer.entry-meta .meta-in {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+#footer {
+    background: #212529;
+    padding: 30px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+
+#footer a {
+    color: #ccc;
+}
+
+#footer a:hover {
+    color: #fff;
+}
+
+#footer h3.widget-title {
+    font-size: 15px;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    color: #ccc;
+    margin: 0 0 20px;
+}
+
+#underfooter {
+    background: #191919;
+    padding: 15px 0;
+    color: #777;
+    font-size: 12px;
+}
+
+#underfooter a {
+    color: #aaa;
+}
+
+#underfooter a:hover {
+    color: #fff;
+}
+
+#underfooter p {
+    margin: 0;
+}
+
+.follow-me-icons {
+    font-size: 30px;
+}
+
+.follow-me-icons i {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+
+/* Max page width
+  /////////////////////////////////////////////////////////////////////*/
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1080px;
+    }
+}

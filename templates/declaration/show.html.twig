@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Declaration{% endblock %}
+
+{% block body %}
+    <h1>Declaration</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ declaration.id }}</td>
+            </tr>
+            <tr>
+                <th>DateDePerte</th>
+                <td>{{ declaration.dateDePerte ? declaration.dateDePerte|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LieuDePerte</th>
+                <td>{{ declaration.lieuDePerte }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ declaration.description }}</td>
+            </tr>
+            <tr>
+                <th>DateDePublication</th>
+                <td>{{ declaration.dateDePublication ? declaration.dateDePublication|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ declaration.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_declaration_index') }}">back to list</a>
+
+    <a href="{{ path('app_declaration_edit', {'id': declaration.id}) }}">edit</a>
+
+    {{ include('declaration/_delete_form.html.twig') }}
+{% endblock %}

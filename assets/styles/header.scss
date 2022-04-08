@@ -1,0 +1,33 @@
+.navbar-brand img {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+    left: 30px !important;
+}
+
+#title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue !important;
+    font-weight: 500;
+    cursor: pointer;
+    margin: auto;
+    padding-top: 5px;
+    margin-left: 25px !important;
+}
+
+#title a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation {
+    height: 70px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+}

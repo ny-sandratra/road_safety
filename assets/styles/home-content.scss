@@ -1,0 +1,43 @@
+.contenu {
+    /* Déclarer la taille */
+    margin: 0 auto;
+    margin-top: 20em !important;
+    margin-bottom: 10em;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-title {
+    color: #f5f5f5;
+}
+
+#form1 {
+    width: 100%;
+}
+
+.input-group {
+    padding-left: 15em;
+}
+
+.container-content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-search {
+    background-color: #00E4E9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: 400;
+    color: #f5f5f5;
+}
+
+.search-contenu {
+    position: relative;
+    left: 50%;
+    top: 5%;
+    transform: translate(-70%);
+}

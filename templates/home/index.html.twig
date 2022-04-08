@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %} Plateforme {% endblock %} {% block body %}
+
+
+<div>
+    {% block javascripts %}{{ encore_entry_script_tags('app')}} {% endblock %}
+    <div id="home">
+
+        {% include "home/content.html.twig" %}
+        {% include "home/footer.html.twig" %}
+    </div>
+</div>
+{% endblock %}

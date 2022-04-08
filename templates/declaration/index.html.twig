@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %} {% block title %}Ajout declaration{% endblock %} {% block body %}
+
+<div class=" declaration-container">
+    {% include "home/header.html.twig" %}
+    <div class="declaration-contenu">
+        <h1>Faire une déclaration</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>DateDePerte</th>
+                    <th>LieuDePerte</th>
+                    <th>Description</th>
+                    <th>DateDePublication</th>
+                    <th>Type</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for declaration in declarations %}
+                <tr>
+                    <td>{{ declaration.dateDePerte ? declaration.dateDePerte|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ declaration.lieuDePerte }}</td>
+                    <td>{{ declaration.description }}</td>
+                    <td>{{ declaration.dateDePublication ? declaration.dateDePublication|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ declaration.type }}</td>
+                    <td>
+                        <a href="{{ path('app_declaration_show', {'id': declaration.id}) }}">show</a>
+                        <a href="{{ path('app_declaration_edit', {'id': declaration.id}) }}">edit</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_declaration_new') }}">Create new</a>
+    </div>
+</div>
+{% endblock %}
