@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %} {% block title %}Platforme!{% endblock %} {% block body %}
+<style>
+    .example-wrapper {
+        margin: 5em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+    
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+</style>
+{% include "home/header.html.twig" %}
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'D:/Licence/securite-routiere/src/Controller/DisparitionController.php'|file_link(0) }}">src/Controller/DisparitionController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'D:/Licence/securite-routiere/templates/disparition/index.html.twig'|file_link(0) }}">templates/disparition/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}

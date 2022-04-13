@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Declaration
 {
+    
     /**
      * @var int
      *
@@ -44,12 +45,14 @@ class Declaration
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_de_publication", type="datetime", nullable=false)
+     * 
+     * @ORM\Version
+     * @ORM\Column(name="date_de_publication", type="datetime", nullable=true)
      */
     private $dateDePublication;
 
     /**
+
      * @ORM\Column(type="string", length=100)
      */
     private $type;

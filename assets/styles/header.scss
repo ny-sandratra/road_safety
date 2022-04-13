@@ -1,33 +1,82 @@
-.navbar-brand img {
-    height: 60px;
-    width: 60px;
-    margin: 10px;
-    left: 30px !important;
-}
-
 #title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: aliceblue !important;
     font-weight: 500;
     cursor: pointer;
     margin: auto;
     padding-top: 5px;
-    margin-left: 25px !important;
+    left: 10;
+    transform: translate(5%);
+}
+
+#header {
+    height: 5em;
+    border-bottom: #B7BF99;
+    background-color: #f1f1f1;
 }
 
 #title a {
     text-decoration: none;
-    color: aliceblue;
+    font-size: 50px;
+    background: -webkit-linear-gradient(#010221, #00E4E9, #E900E9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.form-inline {
-    display: flex;
-    justify-content: space-between;
-}
-
-.navigation {
-    height: 70px;
+.menu {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
+    display: flex;
+    margin-top: 15px;
+    justify-content: safe center;
+    border-top: rgba($color: #E900E9, $alpha: 0.3);
+    border-bottom: rgba($color: #E900E9, $alpha: 0.3);
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.menu .link-item {
+    display: block;
+    float: right;
+    margin: 10px;
+    padding: 10px;
+}
+
+.menu .link-item a {
+    text-decoration: none;
+    list-style-type: none;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.menu .link-item:hover {
+    background-color: lightblue;
+}
+
+.mon_compte_content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    margin-top: 15px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.mon_compte_content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.mon_compte_content a:hover {
+    background-color: #f5f5f5;
+}
+
+.menu #mon_compte:hover .mon_compte_content {
+    display: block!important;
+}
+
+.menu #mon_compte {
+    position: relative;
+    display: inline-block;
 }
