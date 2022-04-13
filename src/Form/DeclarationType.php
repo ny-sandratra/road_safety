@@ -19,24 +19,28 @@ class DeclarationType extends AbstractType
                 'label'=>'Date de Perte ',
                 'widget'=>'single_text',
                 'attr'=>[
+                    'id'=>'date_de_perte',
                     'class'=>'form-control mb-1'
                 ]
             ])
             ->add('lieuDePerte',TextType::class,[
                 'label'=>'Lieu de perte: ',
                 'attr'=>[
+                    'id'=>'lieu_de_perte',
                     'class'=>'form-control mb-1'
                 ]
             ])
             ->add('description',TextareaType::class,[
                 'label' => ' Description',
                 'attr'=>[
+                    'id'=>'description',
                     'class'=>'form-control'
                 ]
             ])
             ->add('type',TextType::class,[
                 'label'=>'Catégories',
                 'attr'=>[
+                    'id'=>'categorie',
                     'class'=>'form-control mb-1'
                 ]
             ])

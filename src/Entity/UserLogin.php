@@ -42,6 +42,12 @@ class UserLogin
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,6 +85,18 @@ class UserLogin
     public function setUser(int $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?User $user_id): self
+    {
+        $this->user_id = $user_id;
 
         return $this;
     }

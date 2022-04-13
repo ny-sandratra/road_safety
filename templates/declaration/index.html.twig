@@ -7,6 +7,14 @@
     {% include "declaration/aside.html.twig" %}
     <div class="content">
         {{ include('declaration/form.html.twig') }}
+        <input type="button" value="Suivant" class="btn btn-primary bouton-suivant">
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // $('#declaration_description').hide();
+        // $('#declaration_type').hide();
+        // $('button').hide()
+    });
+</script>
 {% endblock %}
