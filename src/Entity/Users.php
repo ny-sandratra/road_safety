@@ -42,6 +42,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateNaissance;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $lieuNaissance;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $contact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +170,78 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getDateNaissance(): ?\DateTimeInterface
+    {
+        return $this->dateNaissance;
+    }
+
+    public function setDateNaissance(\DateTimeInterface $dateNaissance): self
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    public function getLieuNaissance(): ?string
+    {
+        return $this->lieuNaissance;
+    }
+
+    public function setLieuNaissance(string $lieuNaissance): self
+    {
+        $this->lieuNaissance = $lieuNaissance;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getContact(): ?string
+    {
+        return $this->contact;
+    }
+
+    public function setContact(string $contact): self
+    {
+        $this->contact = $contact;
 
         return $this;
     }

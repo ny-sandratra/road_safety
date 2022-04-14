@@ -1,27 +1,31 @@
 {% extends 'base.html.twig' %} {% block title %}Platforme!{% endblock %} {% block body %}
 <style>
-    .example-wrapper {
-        margin: 5em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
-    
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
+
 </style>
 
 {% include "home/header.html.twig" %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Licence/securite-routiere/src/Controller/LoginController.php'|file_link(0) }}">src/Controller/LoginController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Licence/securite-routiere/templates/login/index.html.twig'|file_link(0) }}">templates/login/index.html.twig</a></code></li>
-    </ul>
+<div class=" wrapper registration">
+    <div class="title">
+        <img src="{{asset('images/login.png')}}" alt="">
+        <h2>se connecter</h2>
+    </div>
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" /> {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account" /> #}
+        <div style="margin-left: 8em;"><a href="{{ path('register') }}">Créer un compte?</a></div>
+        {% if error %}
+
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <button type="submit" class="btn login-button">Se connecter</button>
+    </form>
+
 </div>
+
 {% endblock %}

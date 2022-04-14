@@ -1,0 +1,80 @@
+.registration {
+    border-style: groove;
+    box-shadow: 10px 10px 20px grey;
+    border-radius: 20px;
+    width: 55%;
+    margin-left: 20em;
+    margin-top: 7em;
+    padding: 60px;
+    padding-top: 20px;
+}
+
+.registration h1,
+h2 {
+    text-align: center;
+}
+
+.registration label {
+    margin: 20px;
+    width: 100px;
+    font-weight: bold;
+    color: rgba($color: #000000, $alpha: 0.7);
+}
+
+.registration input[type=checkbox] {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    left: 1;
+    top: 1;
+    transform: translate(0, 25%);
+}
+
+.registration input {
+    width: 70%;
+    height: 3em;
+    border-radius: 20px;
+    box-shadow: 20px rgba($color: #000000, $alpha: 0.1);
+    padding: 12px 20px;
+}
+
+.registration input[type=text]:focus,
+input[type=password]:focus {
+    border: rgba($color: #000000, $alpha: 0.1);
+}
+
+.registration button {
+    border-color: #E900E9;
+    margin-left: 5em;
+    padding: 15px;
+    width: 80%;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: rgba($color: #00E4E9, $alpha: 0.9);
+    border: none;
+    color: white;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.terms label {
+    width: 50% !important;
+}
+
+.registration .login-button {
+    width: 30% !important;
+    margin-left: 15em;
+    margin-top: 1em;
+}
+
+.registration .title {
+    width: 117%;
+    margin-left: -3.5em;
+    padding-bottom: 1em;
+    margin-bottom: 20px;
+}
+
+.registration .title img {
+    width: 15%;
+    height: 15%;
+    left: 1;
+    transform: translate(18em);
+}
