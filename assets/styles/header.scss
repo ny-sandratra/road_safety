@@ -51,6 +51,10 @@
     background-color: lightblue;
 }
 
+.menu .link-item a:active {
+    background-color: lightblue !important;
+}
+
 .mon_compte_content {
     display: none;
     position: absolute;

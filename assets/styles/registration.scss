@@ -61,7 +61,7 @@ input[type=password]:focus {
 
 .registration .login-button {
     width: 30% !important;
-    margin-left: 15em;
+    margin-left: 13em;
     margin-top: 1em;
 }
 
@@ -77,4 +77,14 @@ input[type=password]:focus {
     height: 15%;
     left: 1;
     transform: translate(18em);
+}
+
+.registration input {
+    border: solid;
+    border-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+.registration input:focus {
+    border: solid;
+    border-color: rgb(70, 70, 253, 0.2) !important;
 }

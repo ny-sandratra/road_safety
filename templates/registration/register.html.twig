@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %} {% block title %}Platforme!{% endblock %} {% block body %} {% include "home/header.html.twig" %}
 
-<div class="wrapper registration">
+<div class="wrapper registration" id="registration">
     {% for flash_error in app.flashes('verify_email_error') %}
     <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -24,6 +24,7 @@
     <div style="text-align: center; margin-top:10px"><a href="#"> Termes et conditions d'admissions</a></div>
 </div>
 
+
 <script>
     $(document).ready(function() {
 
@@ -35,6 +36,7 @@
                 $('.registration-button').attr('disabled', true);
             }
         })
+        $("#login").hide();
     })
 </script>
 {% endblock %}

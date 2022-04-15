@@ -20,8 +20,13 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class,[
+                'attr'=>[
+                    'placeholder'=>'Votre adresse email'
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
+
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -32,6 +37,9 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'attr'=>[
+                    'placeholder'=>'Votre date de Naissance'
+                ],
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
@@ -47,23 +55,39 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('name', TextType::class, [
-                'label'=> " Noms: "
+                'label'=> " Noms: ",
+                'attr'=>[
+                    'placeholder'=>'Votre nom'
+                ]
             ])
             ->add('firstname', TextType::class, [
-                'label'=> " Prénoms: "
+                'label'=> " Prénoms: ",
+                'attr'=>[
+                    'placeholder'=>'Votre prénoms'
+                ]
             ])
             ->add('dateNaissance', DateType::class, [
                 'label'=> "Date de Naissance :",
-                'widget'=>"single_text"
+                'widget'=>"single_text",
+
             ])
             ->add('lieuNaissance', TextType::class, [
-                'label'=> "Lieu de Naissance :"
+                'label'=> "Lieu de Naissance :",
+                'attr'=>[
+                    'placeholder'=>'Votre lieu de Naissance'
+                ]
             ])
             ->add('address', TextType::class, [
-                'label'=> " Adresse :"
+                'label'=> " Adresse :",
+                'attr'=>[
+                    'placeholder'=>'Votre adresse'
+                ]
             ])
             ->add('contact', TextType::class, [
-                'label'=> " Contact"
+                'label'=> " Contact",
+                'attr'=>[
+                    'placeholder'=>'Votre contact'
+                ]
             ])
         ;
     }
