@@ -11,6 +11,7 @@ import './styles/header.scss';
 import './styles/home-content.scss';
 import './styles/declaration.scss';
 import './styles/registration.scss';
+import './styles/contact.scss';
 
 // start the Stimulus application
 import './bootstrap';

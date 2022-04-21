@@ -45,7 +45,7 @@ class Contact
     private $message;
 
     /**
-     * @ORM\ManyToOne(targetEntity=users::class)
+     * @ORM\ManyToOne(targetEntity=Users::class)
      */
     private $userID;
 

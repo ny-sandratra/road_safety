@@ -7,15 +7,20 @@
 
     <h1 class="title"> Inscription </h1>
 
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm , {'attr': {'id': 'new_user'}}) }}
     <div class="form-input">
         {{ form_row(registrationForm.name) }} {{ form_row(registrationForm.firstname) }}
     </div>
 
     {{ form_row(registrationForm.dateNaissance) }} {{ form_row(registrationForm.lieuNaissance) }} {{ form_row(registrationForm.address) }} {{ form_row(registrationForm.contact) }} {{ form_row(registrationForm.email ,{ label: 'Adresse email:' }) }} {{ form_row(registrationForm.plainPassword,
     { label: 'Mot de Passe:' }) }}
+    <div class="col-12">
+        <label for="verifpass">Saisir une seconde fois le mot de passe :</label>
+        <input type="password" id="verifpass" required>
+    </div>
 
-    <div class="terms"> {{ form_row(registrationForm.agreeTerms, {label: "Termes & conditions d'admissions:"}) }}
+    <div class="terms" style="display: flex;">
+        {{ form_widget(registrationForm.agreeTerms) }} {{ form_label(registrationForm.agreeTerms,"Termes et conditions d'admissions") }}
     </div>
 
     <button type="submit" disabled class="btn btn-primary registration-button">Enregistrer</button> {{ form_end(registrationForm) }}
@@ -37,6 +42,15 @@
             }
         })
         $("#login").hide();
+
+        $("#new_user").on('submit', function() {
+            if ($("#registration_form_plainPassword").val() != $("#verifpass").val()) {
+                //implémntez votre code
+                alert("Les deux mots de passe saisies sont différents");
+                alert("Merci de renouveler l'opération");
+                return false;
+            }
+        })
     })
 </script>
 {% endblock %}

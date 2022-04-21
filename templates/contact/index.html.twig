@@ -5,7 +5,21 @@
 
 {% include "home/header.html.twig" %}
 
-<div class="wrapper">
+<div class="wrapper contact">
+    <h1 class="title"> Nous Contacter </h1>
+
+    {{ form_start(form) }}
+    <div class="contact-noms-prenoms">
+        {{ form_row(form.noms) }} {{ form_row(form.prenoms) }}
+    </div>
+    <div class="contact-noms-prenoms">
+        {{ form_row(form.email) }} {{ form_row(form.objet) }}
+    </div>
+    <div class="contact-noms-prenoms">
+        {{ form_row(form.message) }}
+
+    </div>
+    <button type="submit" class="btn btn-primary registration-button">Enregistrer</button> {{ form_end(form) }}
 
 </div>
 {% endblock %}

@@ -1,0 +1,25 @@
+.contact input {
+    width: 100%;
+}
+
+.contact-noms-prenoms {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.contact-noms-prenoms input {
+    margin-top: 7px;
+    width: 160%;
+}
+
+.contact-noms-prenoms div {
+    margin-right: 12em;
+}
+
+.contact-noms-prenoms textarea {
+    position: relative;
+    width: 800px;
+    height: 250px;
+    margin-top: 7px;
+}
