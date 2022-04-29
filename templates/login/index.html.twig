@@ -1,30 +1,281 @@
 {% extends 'base.html.twig' %} {% block title %}Platforme!{% endblock %} {% block body %}
 <style>
-
+    #login {
+        display: flex;
+        margin-right: auto;
+        justify-content: center !important;
+        margin-left: 17%;
+        margin-top: 7em;
+        border-radius: 20px;
+        width: 70%;
+        box-shadow: 6px 3px 17px 2px rgba(0, 0, 0, 0.54);
+        -webkit-box-shadow: 6px 3px 17px 2px rgba(0, 0, 0, 0.54);
+        -moz-box-shadow: 6px 3px 17px 2px rgba(0, 0, 0, 0.54);
+    }
+    
+    .login-user {
+        width: 55%;
+        padding-top: 3%;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        text-align: center;
+    }
+    
+    .login-user label {
+        display: block;
+        margin-left: -10em;
+    }
+    
+    .login-user input {
+        margin-top: 10px;
+        width: 50%;
+        padding: 12px;
+        color: rgba(0, 0, 0, 0.6);
+        outline: none;
+        font-weight: 600;
+    }
+    
+    .login-user input[type=text] {
+        margin-bottom: 15px;
+    }
+    
+    .login-user input:focus {
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .login-user input:hover {}
+    
+    .login-user img {
+        width: 20%;
+        height: auto;
+    }
+    
+    .login-user h1 {
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+    }
+    
+    .login-other {
+        width: 45%;
+        /*background: rgba(255, 255, 0, 0.5) url('{{asset('images/bg.jpg')}}')!important;*/
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("{{asset('images/bg.jpg')}}");
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-size: cover;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: #fff;
+    }
+    
+    .icon {
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        width: 5.2%;
+        height: 100%;
+        min-width: 0px;
+        margin-top: 1.7%;
+    }
+    
+    .user {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .login-button {
+        margin-top: 20px;
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        color: #ffff33;
+        font-weight: 700;
+        font-size: 18px;
+        border-radius: 20px;
+        text-transform: uppercase;
+    }
+    
+    .link-forgot span {
+        display: block;
+        margin: 0;
+        margin-top: 10px;
+        margin-left: 12em;
+        padding: 0;
+        font-weight: 600;
+        font-size: 14px;
+        color: #fff !important;
+    }
+    
+    .login-register {
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.6);
+        margin-top: 10px;
+        margin-bottom: 50px;
+        padding: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        border-radius: 20px;
+        text-transform: uppercase;
+    }
+    
+    .login-register a {
+        text-decoration: none;
+        color: #ffff33;
+    }
+    
+    .login-register a:hover {
+        color: #fff;
+    }
+    
+    .login-user button:hover {
+        color: #fff;
+    }
+    
+    .login-other {
+        padding-top: 16%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .login-other .other {
+        display: flex;
+        margin-top: 25px;
+    }
+    
+    .login-other .other input {
+        border: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 12px;
+        width: 80%;
+        outline: none;
+        color: #fff;
+    }
+    
+    .login-other label {
+        opacity: 0.5;
+    }
+    
+    .other-icon {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 12px;
+        color: white;
+        width: 7%;
+        height: 100%;
+        min-width: 0px;
+    }
+    
+    .other-button {
+        width: 80%;
+        color: rgba(0, 0, 0, 0.6);
+        background-color: #FFDD00;
+        margin-top: 7%;
+        padding: 10px;
+        font-weight: 700;
+        margin-left: 35px;
+        border-radius: 20px;
+    }
+    
+    .other-button span {
+        font-family: 'Montserrat' sans-serif;
+        font-weight: 18px;
+        font-family: 600;
+        text-transform: uppercase;
+    }
+    
+    .loading-data {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 120%;
+        top: 0;
+        left: 0 !important;
+        right: 0;
+    }
+    
+    .closing-data {
+        width: 3%;
+        height: auto;
+        margin-top: 20px;
+        margin-left: 20px !important;
+        background-color: #fff;
+        border-radius: 40px;
+        transition: all 0.4s;
+    }
+    
+    .closing-data:hover {
+        width: 4%;
+        box-shadow: rgba(255, 255, 255, 0.17) 0px -23px 25px 0px inset, rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset, rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset, rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px, rgba(255, 255, 255, 0.09) 0px 8px 4px, rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(255, 255, 255, 0.09) 0px 32px 16px;
+    }
 </style>
-
+<div class="loading-data">
+    <div class="icon-close"><svg class="closing-data" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/></svg></div>
+</div>
 {% include "home/header.html.twig" %}
-<div class=" wrapper registration" id="login">
-    <div class="title">
-        <img src="{{asset('images/login.png')}}" alt="">
-        <h2>se connecter</h2>
+
+<div class=" wrapper" id="login">
+    <div class="login-other ">
+        <p>Je souhaite utiliser l'application sans créer un compte</p>
+        <form action="" method="post">
+            <label for="other-usermail">
+                Adresse Email :
+            </label>
+            <div class="other">
+                {# <label for="username">Adresse Email :</label> #}
+                <i class="fa-solid fa-user other-icon"></i>
+                <input type="text" id="username" name="other_username" value="" placeholder="Adresse email" required id="other-usermail" />
+            </div>
+            <button type="submit" class="other-button btn"><span> Enregistrer </span></button>
+        </form>
     </div>
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="" placeholder="adresse email" />
+    <div class="login-user">
+        <img src="{{asset('images/man.png')}}" alt="">
+        <h1>Bienvenue</h1>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" /> {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account" /> #}
-        <div style="margin-left: 8em; margin-top:10px; margin-bottom:20px;">
-            <span><a href="{{ path('register') }}">Créer un compte?</a></span>
-            <span style="margin-left: 5em;"><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a></span>
-        </div>
-        {% if error %}
+        <form action="{{ path('login') }}" method="post">
+            <div class="user">
+                {# <label for="username">Adresse Email :</label> #}
+                <i class="fa-solid fa-user icon"></i>
+                <input type="text" id="username" name="_username" value="" placeholder="Adresse email" required />
+            </div>
+            <div class="user">
+                {# <label for="password">Mot de passe:</label> #}
+                <i class="fa-solid fa-lock icon" style="width: 5.3% !important;"></i>
+                <input type="password" id="password" name="_password" placeholder="Mot de passe" required/>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> {# If you want to control the URL the user is redirected to on success
+            <input type="hidden" name="_target_path" value="/account" /> #}
 
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-        <button type="submit" class="btn login-button">Se connecter</button>
-    </form>
+            <div class="link-forgot">
+                <span><a href="#">Mot de passe oublié?</a></span>
+            </div>
+            <button type="submit" class="login-button btn">Connexion</button>
+            <div>
+                <button type="submit" class="btn login-register"><a href="{{ path('register') }}">Register</a></button>
+            </div>
+            {% if error %}
 
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".loading-data").hide();
+            $('.link-forgot').click(function() {
+                $(".loading-data").show();
+
+            })
+            $(".icon-close").click(function() {
+                $(".loading-data").hide();
+            })
+
+
+        });
+    </script>
 </div>{% endblock %}

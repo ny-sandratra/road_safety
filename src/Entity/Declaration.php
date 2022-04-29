@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,16 @@ class Declaration
      * @ORM\Column(type="string", length=100)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PhotoDeclaration::class, mappedBy="post", orphanRemoval=true)
+     */
+    private $photoDeclarations;
+
+    public function __construct()
+    {
+        $this->photoDeclarations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -118,6 +130,36 @@ class Declaration
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PhotoDeclaration>
+     */
+    public function getPhotoDeclarations(): Collection
+    {
+        return $this->photoDeclarations;
+    }
+
+    public function addPhotoDeclaration(PhotoDeclaration $photoDeclaration): self
+    {
+        if (!$this->photoDeclarations->contains($photoDeclaration)) {
+            $this->photoDeclarations[] = $photoDeclaration;
+            $photoDeclaration->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhotoDeclaration(PhotoDeclaration $photoDeclaration): self
+    {
+        if ($this->photoDeclarations->removeElement($photoDeclaration)) {
+            // set the owning side to null (unless already changed)
+            if ($photoDeclaration->getPost() === $this) {
+                $photoDeclaration->setPost(null);
+            }
+        }
 
         return $this;
     }

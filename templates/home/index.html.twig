@@ -1,11 +1,19 @@
-{% extends 'base.html.twig' %} {% block title %} Plateforme {% endblock %} {% block body %}
+ {% extends 'base.html.twig' %} {% block title %} Plateforme {% endblock %} {% block body %}
 
 
 <div>
+    <style>
+        section {
+            width: 100%;
+            height: 600px;
+            background-color: #ffffff;
+        }
+    </style>
     {% block javascripts %}{{ encore_entry_script_tags('app')}} {% endblock %}
     <div id="home">
 
-        {% include "home/header.html.twig" %}
+        {% include "home/header.html.twig" %} {% include "home/slider.html.twig" %}
+        <section>{% include "home/post.html.twig" %}</section>
     </div>
 </div>
 {% endblock %}

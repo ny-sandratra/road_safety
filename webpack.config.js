@@ -63,6 +63,8 @@ Encore
 // enables Sass/SCSS support
 .enableSassLoader()
 
+.enablePostCssLoader()
+
 //enable jquery
 .autoProvidejQuery()
 
@@ -77,10 +79,10 @@ Encore
 //.enableIntegrityHashes(Encore.isProduction())
 
 // uncomment if you're having problems with a jQuery plugin
-//.autoProvidejQuery()
-// .addPlugin(new CopyWebpackPlugin([
-//     { from: './assets/img', to: 'img' }
-// ]))
+.autoProvidejQuery()
+    // .addPlugin(new CopyWebpackPlugin([
+    //     { from: './assets/img', to: 'img' }
+    // ]))
 ;
 
 module.exports = {
@@ -91,6 +93,19 @@ module.exports = {
             ],
         }),
     ],
+    module: {
+        rules: [{
+            test: /\.s[ac]ss$/i,
+            use: [
+                // Creates `style` nodes from JS strings
+                "style-loader",
+                // Translates CSS into CommonJS
+                "css-loader",
+                // Compiles Sass to CSS
+                "sass-loader",
+            ],
+        }, ],
+    },
 };
 
 module.exports = Encore.getWebpackConfig();

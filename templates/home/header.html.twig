@@ -6,12 +6,99 @@
             </h1>
 
         </div>
+        {% if app.user %}
+        <style>
+            .navigation-primaire {
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .userlinkitem {
+                text-decoration: none;
+                list-style-type: none;
+                margin-right: 25px;
+                padding-right: 25px;
+                padding-top: 16px;
+                padding-bottom: 0%;
+                color: rgb(105, 105, 105);
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+            }
+            
+            .icon {
+                margin-right: 10px;
+                margin-top: 5px;
+            }
+            /* The container <div> - needed to position the dropdown content */
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            /* Dropdown Content (Hidden by Default) */
+            
+            .dropdown-content {
+                margin-top: 40px;
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+            /* Links inside the dropdown */
+            
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+            }
+            /* Change color of dropdown links on hover */
+            
+            .dropdown-content a:hover {
+                background-color: #ddd
+            }
+            /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+            
+            .show {
+                display: block;
+            }
+            
+            .active {
+                color: #fff !important;
+            }
+        </style>
+        <div class="user_nav">
+            <ul class="usermenu">
+                <li class="userlinkitem ">
+                    <div class="icon"><i class="fa fa-user " aria-hidden="true"></i></div>
+
+                    <div style="margin-top: 5px !important; "><span class="dropdown-toggle" id="menu_dropdown" onclick="link_dropdown()" data-toggle="dropdown" style="text-transform: uppercase;"> {{app.user.name}}  </span></div>
+
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Editer mon compte</a>
+                        <a href="#">Changer d'utilisateur</a>
+                        <a href="{{path('logout')}}" style="background-color: rgba(0,0,0,0.3);">se déconnecter</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        {% endif %}
     </nav>
     <nav class="navigation-secondaire">
         <ul class="menu">
-            <li class="link-item"><a href="{{ path('home')}}">Accueil </a> </li>
+            <li class="link-item "><a href="{{ path('home')}}" class="active">Accueil </a> </li>
             <li class="link-item"><a href="{{path('disparition')}}">Avis de disparition </a> </li>
             <li class="link-item"><a href="{{ path('declaration')}}">Faire une déposition </a> </li>
+            {% if not app.user %}
+
+
             <li class="link-item" id="mon_compte">
                 <a href="#">Mon compte </a>
                 <div class="mon_compte_content">
@@ -19,7 +106,27 @@
                     <a href="{{path('register')}}">Inscription</a>
                 </div>
             </li>
+            {% endif %}
             <li class="link-item"><a href="{{path('contact')}}">Nous contacter</a> </li>
         </ul>
     </nav>
 </header>
+<script>
+    function link_dropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

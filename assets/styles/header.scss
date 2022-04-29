@@ -11,33 +11,36 @@
 #header {
     height: 5em;
     border-bottom: #B7BF99;
-    background-color: #f1f1f1;
 }
 
 #title a {
     text-decoration: none;
     font-size: 50px;
-    background: -webkit-linear-gradient(#010221, #00E4E9, #E900E9);
+    background: rgb(1, 1, 1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .menu {
     width: 100%;
+    height: 4em;
     display: flex;
     margin-top: 15px;
     justify-content: safe center;
-    border-top: rgba($color: #E900E9, $alpha: 0.3);
-    border-bottom: rgba($color: #E900E9, $alpha: 0.3);
+    background-color: #FFDD00;
+    //border-top: rgba($color: #E900E9, $alpha: 0.3);
+    //border-bottom: rgba($color: #E900E9, $alpha: 0.3);
     border-bottom-style: solid;
     border-top-style: solid;
 }
 
 .menu .link-item {
+    font-family: 'Montserrat' sans-serif;
     display: block;
     float: right;
-    margin: 10px;
-    padding: 10px;
+    padding: 12px 25px;
+    transition-delay: 1s;
+    transition: all 0.3s;
 }
 
 .menu .link-item a {
@@ -45,10 +48,26 @@
     list-style-type: none;
     font-size: larger;
     font-weight: 500;
+    color: rgb(1, 1, 1);
+}
+
+.menu .link-item:active {
+    padding: 12px 25px 0px 25px;
+    position: static;
+    border-bottom: #03BB22 solid;
+    box-shadow: rgb(1, 1, 1) 10px;
+    margin-bottom: 12px;
+    font-size: 500;
 }
 
 .menu .link-item:hover {
-    background-color: lightblue;
+    padding: 12px 25px 0px 25px;
+    position: static;
+    border-bottom: #03BB22 solid;
+    box-shadow: rgb(1, 1, 1) 10px;
+    margin-bottom: 12px;
+    font-size: 500;
+    //background-color: lightblue;
 }
 
 .menu .link-item a:active {
